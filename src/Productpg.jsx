@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 const ProductPage = () => {
   // Dummy product data
@@ -97,9 +98,13 @@ const ProductPage = () => {
             <button className="flex-1 bg-slate-700 border-2 border-white hover:bg-white text-white hover:text-gray-900 font-bold py-3 rounded-lg transition">
               Buy Now
             </button>
+            
             <button className="flex-1 bg-white hover:bg-black text-gray-900 hover:text-white hover:border-2 hover:border-white font-bold py-3 rounded-lg transition">
+              <Link to="/cart">
               Add to Cart
+              </Link>
             </button>
+            
           </div>
         </div>
       </div>

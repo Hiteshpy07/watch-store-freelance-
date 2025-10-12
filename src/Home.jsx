@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Navbar from './Navbar'
 import WatchCard from './WatchCard'
 
+
 function Home() {
   const [Cartopen, setCartopen] = useState(false)
 
@@ -19,12 +20,7 @@ function Home() {
         </div>
       </div>
       <WatchCard/>
-      <div className='bg-white'>
-        <button onClick={()=>{setCartopen(!Cartopen)}}>Cart</button>
-      </div>
-      <div className={`fixed bg-white top-25 right-0 w-[40%] h-full ${Cartopen?"overflow:auto translate-x-0":"translate-x-full"} transition duration-200 rounded-xl`}>
-        this is the cart
-      </div>
+      
       
     </div>
 

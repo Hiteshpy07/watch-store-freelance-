@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiSearch, FiShoppingBag, FiUser } from "react-icons/fi";
+import { Routes, Route, Link } from "react-router-dom";
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -40,7 +41,9 @@ const Navbar = () => {
             <FiUser size={16} />
             <span>Account</span>
           </button>
+          <Link to="/cart" >
           <FiShoppingBag className="w-5 h-5 cursor-pointer hover:text-gray-300" />
+          </Link>
         </div>
       </div>
 
