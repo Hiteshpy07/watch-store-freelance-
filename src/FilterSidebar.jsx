@@ -112,7 +112,7 @@ const FilterSidebar = ({ onFilterChange }) => {
       {/* Apply Button */}
       <button
         onClick={applyFilters}
-        className="mt-auto w-full py-2 px-4 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition"
+        className="mt-auto w-full py-2 px-4 bg-black text-white rounded-lg font-semibold hover:bg-white hover:border-2 hover-border-black hover:text-black transition"
       >
         Apply Filters
       </button>
