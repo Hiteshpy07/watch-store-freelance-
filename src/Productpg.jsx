@@ -118,6 +118,7 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
+import { fastrackProducts } from './fastrackProducts.js';
 
 const ProductPage = () => {
   const product = {
@@ -186,9 +187,9 @@ const ProductPage = () => {
 
             {/* Price */}
             <div className="flex items-baseline space-x-4 mb-6 mt-4">
-              <span className="text-3xl font-bold text-green-600">₹3,395</span>
-              <span className="text-lg line-through text-gray-400">₹4,245</span>
-              <span className="text-md text-green-400">20% off</span>
+              <span className="text-3xl font-bold text-black">₹3,395</span>
+              <span className="text-lg line-through text-gray-600">₹4,245</span>
+              <span className="text-md text-black ">20% off</span>
             </div>
 
             {/* Quantity Selector */}
@@ -214,13 +215,13 @@ const ProductPage = () => {
 
           {/* Buttons */}
           <div className="mt-6 flex flex-col sm:flex-row gap-4">
-            <button className="flex-1 bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-lg transition">
+            <button className="flex-1 bg-gray-800 text-white hover:bg-gray-200 hover:text-black hover:border-2 hover:border-gray-800 font-bold py-3 rounded-lg transition">
               Buy Now
             </button>
 
             <Link
               to="/cart"
-              className="flex-1 bg-white hover:bg-green-600 hover:text-white border border-green-600 text-green-600 font-bold py-3 rounded-lg text-center transition"
+              className="flex-1 hover:bg-white bg-gray-800 text-white border border-gray-800 hover:text-black font-bold py-3 rounded-lg text-center transition"
             >
               Add to Cart
             </Link>

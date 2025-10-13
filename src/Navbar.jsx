@@ -100,7 +100,9 @@ function Navbar() {
           </button>
 
           <div className='text-xl sm:text-2xl font-bold tracking-widest cursor-pointer'>
-            GHADI.com
+            <Link to="/">
+            Rajwatches.in
+            </Link>
           </div>
 
           <div className='md:hidden flex items-center space-x-3'>

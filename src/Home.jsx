@@ -45,6 +45,7 @@ import Navbar from './Navbar'
 import WatchCard from './WatchCard'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Link } from "react-router-dom";
+import FilterSidebar from "./FilterSidebar";
 
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -56,10 +57,33 @@ function Home() {
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length)
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+  const [filters, setFilters] = useState({});
+  const handleFilterChange = (newFilters) => {
+    console.log("Applied Filters:", newFilters);
+    setFilters(newFilters);
+    // Apply filtering logic for products here
+  };
+
+  const brands = [
+  {
+    name: "Fastrack",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Fastrack-logo.png",
+  },
+  {
+    name: "Sonata",
+    logo: "https://upload.wikimedia.org/wikipedia/en/b/b1/Sonata_Logo.svg",
+  },
+  {
+    name: "Titan",
+    logo: "https://upload.wikimedia.org/wikipedia/en/2/2c/Titan_Company_Logo.svg",
+  },
+];
 
   return (
     <div className='bg-gray-50 w-full min-h-screen overflow-y-auto relative'>
       <Navbar />
+
+      
 
       <div className='relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] w-full bg-gradient-to-r from-blue-100 to-gray-100 overflow-hidden'>
         <div className='relative w-full h-full'>
@@ -152,10 +176,57 @@ function Home() {
           </div>
         </div>
       </div>
+    <div>
+      {/* shod by brand section */}
+      <section className="bg-white py-12 px-6">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
+          Shop by Brand
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {brands.map((brand) => (
+            <div
+              key={brand.name}
+              className="group bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition hover:scale-105 cursor-pointer"
+            >
+              <div className="flex flex-col items-center justify-center">
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="w-32 h-16 object-contain mb-4 group-hover:scale-110 transition-transform duration-300"
+                />
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {brand.name}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+       </div>
+
+
+
+      <div className='flex h-screen overflow-hidden'>
+        {/* main div of the filter and all watch caard */}
+
+        {/* filter div */}
+    <div className="w-64 flex-shrink-0 h-screen sticky top-0">
+      <FilterSidebar onFilterChange={handleFilterChange} />
+    </div>
+
+      <div className='flex-1 overflow-y-auto bg-gray-50 p-6'>
+        {/* watch card div */}
       <Link to="/product-page">
       <WatchCard />
       </Link>
+      </div>
+      </div>
     </div>
+
+    
   )
 }
 
