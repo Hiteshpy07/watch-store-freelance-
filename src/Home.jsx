@@ -40,194 +40,407 @@
 
 
 
-import { useState } from 'react'
-import Navbar from './Navbar'
-import WatchCard from './WatchCard'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { Link } from "react-router-dom";
-import FilterSidebar from "./FilterSidebar";
+// import { useState } from 'react'
+// import Navbar from './Navbar'
+// import WatchCard from './WatchCard'
+// import { ChevronLeft, ChevronRight } from 'lucide-react'
+// import { Link } from "react-router-dom";
+// import FilterSidebar from "./FilterSidebar";
 
-function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const slides = [
-    'https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'https://images.pexels.com/photos/125779/pexels-photo-125779.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&w=1200'
-  ]
+// function Home() {
+//   const [currentSlide, setCurrentSlide] = useState(0)
+//   const slides = [
+//     'https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1200',
+//     'https://images.pexels.com/photos/125779/pexels-photo-125779.jpeg?auto=compress&cs=tinysrgb&w=1200',
+//     'https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&w=1200'
+//   ]
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length)
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  const [filters, setFilters] = useState({});
-  const handleFilterChange = (newFilters) => {
-    console.log("Applied Filters:", newFilters);
-    setFilters(newFilters);
-    // Apply filtering logic for products here
-  };
+//   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length)
+//   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+//   const [filters, setFilters] = useState({});
+//   const handleFilterChange = (newFilters) => {
+//     console.log("Applied Filters:", newFilters);
+//     setFilters(newFilters);
+//     // Apply filtering logic for products here
+//   };
 
-  const brands = [
-  {
-    name: "Fastrack",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Fastrack-logo.png",
-  },
-  {
-    name: "Sonata",
-    logo: "https://upload.wikimedia.org/wikipedia/en/b/b1/Sonata_Logo.svg",
-  },
-  {
-    name: "Titan",
-    logo: "https://upload.wikimedia.org/wikipedia/en/2/2c/Titan_Company_Logo.svg",
-  },
-];
+//   const brands = [
+//   {
+//     name: "Fastrack",
+//     logo: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Fastrack-logo.png",
+//   },
+//   {
+//     name: "Sonata",
+//     logo: "https://upload.wikimedia.org/wikipedia/en/b/b1/Sonata_Logo.svg",
+//   },
+//   {
+//     name: "Titan",
+//     logo: "https://upload.wikimedia.org/wikipedia/en/2/2c/Titan_Company_Logo.svg",
+//   },
+// ];
 
-  return (
-    <div className='bg-gray-50 w-full min-h-screen overflow-y-auto relative'>
-      <Navbar />
+//   return (
+//     <div className='bg-gray-50 w-full min-h-screen overflow-y-auto relative'>
+//       <Navbar />
 
       
 
-      <div className='relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] w-full bg-gradient-to-r from-blue-100 to-gray-100 overflow-hidden'>
-        <div className='relative w-full h-full'>
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-500 ${
-                index === currentSlide ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              <img
-                src={slide}
-                alt={`Slide ${index + 1}`}
-                className='w-full h-full object-cover'
-              />
-              <div className='absolute inset-0 bg-gradient-to-r from-black/40 to-transparent' />
-            </div>
-          ))}
+//       <div className='relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] w-full bg-gradient-to-r from-blue-100 to-gray-100 overflow-hidden'>
+//         <div className='relative w-full h-full'>
+//           {slides.map((slide, index) => (
+//             <div
+//               key={index}
+//               className={`absolute inset-0 transition-opacity duration-500 ${
+//                 index === currentSlide ? 'opacity-100' : 'opacity-0'
+//               }`}
+//             >
+//               <img
+//                 src={slide}
+//                 alt={`Slide ${index + 1}`}
+//                 className='w-full h-full object-cover'
+//               />
+//               <div className='absolute inset-0 bg-gradient-to-r from-black/40 to-transparent' />
+//             </div>
+//           ))}
 
-          <div className='absolute inset-0 flex items-center justify-center'>
-            <div className='text-center text-white px-4'>
-              <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 drop-shadow-lg'>
-                Timeless Elegance
-              </h2>
-              <p className='text-base sm:text-lg md:text-xl mb-4 sm:mb-6 drop-shadow-lg'>
-                Discover our exclusive collection
-              </p>
-              <button className='bg-white text-gray-900 px-6 sm:px-8 py-2 sm:py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors shadow-lg text-sm sm:text-base'>
-                Shop Now
-              </button>
-            </div>
+//           <div className='absolute inset-0 flex items-center justify-center'>
+//             <div className='text-center text-white px-4'>
+//               <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 drop-shadow-lg'>
+//                 Timeless Elegance
+//               </h2>
+//               <p className='text-base sm:text-lg md:text-xl mb-4 sm:mb-6 drop-shadow-lg'>
+//                 Discover our exclusive collection
+//               </p>
+//               <button className='bg-white text-gray-900 px-6 sm:px-8 py-2 sm:py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors shadow-lg text-sm sm:text-base'>
+//                 Shop Now
+//               </button>
+//             </div>
+//           </div>
+
+//           <button
+//             onClick={prevSlide}
+//             className='absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all'
+//           >
+//             <ChevronLeft className='text-gray-900' size={20} />
+//           </button>
+//           <button
+//             onClick={nextSlide}
+//             className='absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all'
+//           >
+//             <ChevronRight className='text-gray-900' size={20} />
+//           </button>
+
+//           <div className='absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2'>
+//             {slides.map((_, index) => (
+//               <button
+//                 key={index}
+//                 onClick={() => setCurrentSlide(index)}
+//                 className={`w-2 h-2 rounded-full transition-all ${
+//                   index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
+//                 }`}
+//               />
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12'>
+//         <h2 className='text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-5 text-center'>
+//           Shop by Category
+//         </h2>
+//         <div className='flex flex-col sm:flex-row gap-4 sm:gap-6'>
+//           <div className='flex-1 relative h-[200px] sm:h-[250px] rounded-lg overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-shadow'>
+//             <img
+//               src='https://images.pexels.com/photos/1697214/pexels-photo-1697214.jpeg?auto=compress&cs=tinysrgb&w=600'
+//               alt='Men watches'
+//               className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
+//             />
+//             <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent' />
+//             <div className='absolute bottom-0 left-0 right-0 p-6 text-white'>
+//               <h3 className='text-2xl sm:text-3xl font-bold mb-1'>Men's Collection</h3>
+//               <p className='text-sm sm:text-base text-gray-200'>Explore masculine elegance</p>
+//             </div>
+//           </div>
+
+//           <div className='flex-1 relative h-[200px] sm:h-[250px] rounded-lg overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-shadow'>
+//             <img
+//               src='https://images.pexels.com/photos/3731219/pexels-photo-3731219.jpeg?auto=compress&cs=tinysrgb&w=600'
+//               alt='Women watches'
+//               className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
+//             />
+//             <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent' />
+//             <div className='absolute bottom-0 left-0 right-0 p-6 text-white'>
+//               <h3 className='text-2xl sm:text-3xl font-bold mb-1'>Women's Collection</h3>
+//               <p className='text-sm sm:text-base text-gray-200'>Discover refined beauty</p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     <div>
+//       {/* shod by brand section */}
+//       <section className="bg-white py-12 px-6">
+//       <div className="max-w-7xl mx-auto text-center">
+//         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
+//           Shop by Brand
+//         </h2>
+
+//         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+//           {brands.map((brand) => (
+//             <div
+//               key={brand.name}
+//               className="group bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition hover:scale-105 cursor-pointer"
+//             >
+//               <div className="flex flex-col items-center justify-center">
+//                 <img
+//                   src={brand.logo}
+//                   alt={brand.name}
+//                   className="w-32 h-16 object-contain mb-4 group-hover:scale-110 transition-transform duration-300"
+//                 />
+//                 <h3 className="text-lg font-semibold text-gray-800">
+//                   {brand.name}
+//                 </h3>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//        </div>
+
+
+
+//       <div className='flex h-screen overflow-hidden'>
+//         {/* main div of the filter and all watch caard */}
+
+//         {/* filter div */}
+//     <div className="w-64 flex-shrink-0 h-screen sticky top-0">
+//       <FilterSidebar onFilterChange={handleFilterChange} />
+//     </div>
+
+//       <div className='flex-1 overflow-y-auto bg-gray-50 p-6'>
+//         {/* watch card div */}
+//       <Link to="/product-page">
+//       <WatchCard />
+//       </Link>
+//       </div>
+//       </div>
+//     </div>
+
+    
+//   )
+// }
+
+// export default Home
+
+
+// updated home.jsx file for floatable filter button in mobile
+import { useState } from "react";
+import Navbar from "./Navbar";
+import WatchCard from "./WatchCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import FilterSidebar from "./FilterSidebar";
+import Footer from "./Footer";
+import TestimonialSection from "./Testimonialsection";
+import WhyChooseUs from "./Contact";
+
+
+// Images
+import Fastracklogo from './assets/Fastrack_logo.svg.png';
+import Sonatalogo from './assets/sonata_logo.jpg';
+import Titanlogo from './assets/titan.png';
+import Timexlogo from './assets/timex.png';
+import Fossillogo from './assets/Fossil-Logo.png';
+import Policelogo from './assets/Police-logo.png';
+import Menswatch from './assets/Menswatchcollection.webp';
+import Womenswatch from './assets/Womenswatchcollection.webp';
+import StorySection from "./StorySection";
+import wallclock from "./assets/wallcolock.avif"
+
+function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [filters, setFilters] = useState({});
+  const [isFilterOpen, setIsFilterOpen] = useState(false); // mobile filter toggle
+
+  const slides = [
+    "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "https://images.pexels.com/photos/125779/pexels-photo-125779.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "https://images.pexels.com/photos/277390/pexels-photo-277390.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  ];
+
+  const brands = [
+    { name: "Fastrack", logo: Fastracklogo },
+    { name: "Titan", logo: Titanlogo },
+    { name: "Sonata", logo: Sonatalogo },
+    { name: "Timex", logo: Timexlogo },
+    { name: "Fossil", logo: Fossillogo },
+    { name: "Police", logo: Policelogo },
+  ];
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+
+  const handleFilterChange = (newFilters) => {
+    console.log("Applied Filters:", newFilters);
+    setFilters(newFilters);
+  };
+
+  return (
+    <div className="bg-gray-50 w-full min-h-screen relative">
+      <Navbar />
+
+      {/* HERO SLIDER */}
+      <div className="relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] w-full bg-gradient-to-r from-blue-100 to-gray-100 overflow-hidden">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-500 ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img src={slide} alt={`Slide ${index + 1}`} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+          </div>
+        ))}
+
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 drop-shadow-lg">
+              Timeless Elegance
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 drop-shadow-lg">
+              Discover our exclusive collection
+            </p>
+            <button className="bg-white text-gray-900 px-6 sm:px-8 py-2 sm:py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors shadow-lg text-sm sm:text-base">
+              Shop Now
+            </button>
+          </div>
+        </div>
+
+        <button
+          onClick={prevSlide}
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all"
+        >
+          <ChevronLeft className="text-gray-900" size={20} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all"
+        >
+          <ChevronRight className="text-gray-900" size={20} />
+        </button>
+
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* CATEGORY SECTION */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+          Shop by Category
+        </h2>
+
+        <div className="flex flex-col sm:flex-row gap-6">
+          {/* Men's Collection */}
+          <div className="flex-1 relative h-[220px] rounded-xl overflow-hidden group cursor-pointer shadow-md hover:shadow-xl">
+            <Link to="/watches-men">
+              <img
+                src={Menswatch}
+                alt="Men"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black/50 flex items-end p-6 text-white">
+                <div>
+                  <h3 className="text-2xl font-bold">Men's Collection</h3>
+                  <p>Explore masculine elegance</p>
+                </div>
+              </div>
+            </Link>
           </div>
 
-          <button
-            onClick={prevSlide}
-            className='absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all'
-          >
-            <ChevronLeft className='text-gray-900' size={20} />
-          </button>
-          <button
-            onClick={nextSlide}
-            className='absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all'
-          >
-            <ChevronRight className='text-gray-900' size={20} />
-          </button>
-
-          <div className='absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2'>
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
-                }`}
+          {/* Women's Collection */}
+          <div className="flex-1 relative h-[220px] rounded-xl overflow-hidden group cursor-pointer shadow-md hover:shadow-xl">
+            <Link to="/watches-women">
+              <img
+                src={Womenswatch}
+                alt="Women"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
+              <div className="absolute inset-0 bg-black/50 flex items-end p-6 text-white">
+                <div>
+                  <h3 className="text-2xl font-bold">Women's Collection</h3>
+                  <p>Discover refined beauty</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Wall Clocks Collection */}
+          <div className="flex-1 relative h-[220px] rounded-xl overflow-hidden group cursor-pointer shadow-md hover:shadow-xl">
+            <Link to="/wall-clocks">
+              <img
+                src={wallclock}
+                alt="Wall Clocks"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black/50 flex items-end p-6 text-white">
+                <div>
+                  <h3 className="text-2xl font-bold">Wall Clocks</h3>
+                  <p>Style your walls with time</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* BRAND SECTION */}
+      <section className="bg-white py-12 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-10">Shop by Brand</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-6 gap-8">
+            {brands.map((brand) => (
+              <div
+                key={brand.name}
+                className="group bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition hover:scale-105"
+              >
+                <Link to={brand.name}>
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="w-32 h-16 object-contain mx-auto mb-4 group-hover:scale-110 transition-transform"
+                  />
+                </Link>
+                <h3 className="text-lg font-semibold text-gray-800">{brand.name}</h3>
+              </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12'>
-        <h2 className='text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-5 text-center'>
-          Shop by Category
-        </h2>
-        <div className='flex flex-col sm:flex-row gap-4 sm:gap-6'>
-          <div className='flex-1 relative h-[200px] sm:h-[250px] rounded-lg overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-shadow'>
-            <img
-              src='https://images.pexels.com/photos/1697214/pexels-photo-1697214.jpeg?auto=compress&cs=tinysrgb&w=600'
-              alt='Men watches'
-              className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
-            />
-            <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent' />
-            <div className='absolute bottom-0 left-0 right-0 p-6 text-white'>
-              <h3 className='text-2xl sm:text-3xl font-bold mb-1'>Men's Collection</h3>
-              <p className='text-sm sm:text-base text-gray-200'>Explore masculine elegance</p>
-            </div>
-          </div>
-
-          <div className='flex-1 relative h-[200px] sm:h-[250px] rounded-lg overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-shadow'>
-            <img
-              src='https://images.pexels.com/photos/3731219/pexels-photo-3731219.jpeg?auto=compress&cs=tinysrgb&w=600'
-              alt='Women watches'
-              className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
-            />
-            <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent' />
-            <div className='absolute bottom-0 left-0 right-0 p-6 text-white'>
-              <h3 className='text-2xl sm:text-3xl font-bold mb-1'>Women's Collection</h3>
-              <p className='text-sm sm:text-base text-gray-200'>Discover refined beauty</p>
-            </div>
-          </div>
+      {/* PRODUCT SECTION (optional Watch Cards + filters) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex gap-6">
+          {/* Placeholder: Add WatchCard components here */}
         </div>
-      </div>
-    <div>
-      {/* shod by brand section */}
-      <section className="bg-white py-12 px-6">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
-          Shop by Brand
-        </h2>
+      </section>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          {brands.map((brand) => (
-            <div
-              key={brand.name}
-              className="group bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition hover:scale-105 cursor-pointer"
-            >
-              <div className="flex flex-col items-center justify-center">
-                <img
-                  src={brand.logo}
-                  alt={brand.name}
-                  className="w-32 h-16 object-contain mb-4 group-hover:scale-110 transition-transform duration-300"
-                />
-                <h3 className="text-lg font-semibold text-gray-800">
-                  {brand.name}
-                </h3>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-       </div>
-
-
-
-      <div className='flex h-screen overflow-hidden'>
-        {/* main div of the filter and all watch caard */}
-
-        {/* filter div */}
-    <div className="w-64 flex-shrink-0 h-screen sticky top-0">
-      <FilterSidebar onFilterChange={handleFilterChange} />
+      {/* TESTIMONIALS & OTHER SECTIONS */}
+      <StorySection/>
+      <TestimonialSection />
+      <WhyChooseUs />
+      <Footer />
     </div>
-
-      <div className='flex-1 overflow-y-auto bg-gray-50 p-6'>
-        {/* watch card div */}
-      <Link to="/product-page">
-      <WatchCard />
-      </Link>
-      </div>
-      </div>
-    </div>
-
-    
-  )
+  );
 }
 
-export default Home
+export default Home;
